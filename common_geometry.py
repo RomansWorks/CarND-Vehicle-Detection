@@ -1,8 +1,8 @@
 
 class Point():
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = int(x)
+        self.y = int(y)
         
     def scale(self, factor):
         return Point(self.x*factor, self.y*factor)
@@ -60,6 +60,8 @@ class Rect():
     def calculate_area(self):
         return self.get_height() * self.get_width()
         
+    def is_contained_in(self, other):
+        return self.get_top() >= other.get_top() and self.get_bottom() <= other.get_bottom() and self.get_left() >= other.get_left() and self.get_right() <= other.get_right()
         
     def __repr__(self):
         return "Rect({},{})".format(self.p1,self.p2)    
