@@ -67,6 +67,12 @@ class Rect():
         return "Rect({},{})".format(self.p1,self.p2)    
 
     
+def get_bbox_center(bbox):
+    x = (bbox[1][0] - bbox[0][0])/2 + bbox[0][0]
+    y = (bbox[1][1] - bbox[0][1])/2 + bbox[0][1]
+    return (int(x),int(y))
+
+
 
 def test_point():
     p = Point(10, 20)
