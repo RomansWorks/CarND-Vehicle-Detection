@@ -36,10 +36,9 @@ Initially I list the available images for the training set. 3 types of images ar
 The code for loading the images is found in the class TrainingImageLoader. After loading the images I convert them to 1 byte per channel format (instead of float). The loading is performed in a process pool to speed things up. 
 I load the images into a TrainingAndTestSet, which in turn uses a FeatureExtractor to convert the images into feature vectors, and add label vectors to match. I then feed this object into ClassifierTrainer to train the classifier (explained later below).
 
-![Vehicle example](dataset/vehicles/GTI_MiddleClose/image0100.png)
-![Non-Vehicle example](dataset/non-vehicles/GTI/image100.png)
-
-See a non-vehicle hard-negative mined example here: `dataset/non-vehicles-mined/Screen Shot 2017-09-28 at 5.42.06 PM.png`
+![Vehicle example](dataset/vehicle_example.png)
+![Non-Vehicle example](dataset/non_vehicle_example.png)
+![Non-Vehicle from hard negative mining example](dataset/hard_mined_non_vehicle_example.png)
 
 I also extracted color features (binned) and color histogram. This allowed me to reach classifier accuracy of over 99.4% (on the same dataset, 20% of the images are randomly selected for test).
 
