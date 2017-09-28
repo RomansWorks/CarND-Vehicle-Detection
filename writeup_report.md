@@ -38,7 +38,8 @@ I load the images into a TrainingAndTestSet, which in turn uses a FeatureExtract
 
 ![Vehicle example](dataset/vehicles/GTI_MiddleClose/image0100.png)
 ![Non-Vehicle example](dataset/non-vehicles/GTI/image100.png)
-![Non-Vehicle from hard negative mining example](dataset/non-vehicles-mined/Screen Shot 2017-09-28 at 5.42.06 PM.png)
+
+See a non-vehicle hard-negative mined example here: `dataset/non-vehicles-mined/Screen Shot 2017-09-28 at 5.42.06 PM.png`
 
 I also extracted color features (binned) and color histogram. This allowed me to reach classifier accuracy of over 99.4% (on the same dataset, 20% of the images are randomly selected for test).
 
