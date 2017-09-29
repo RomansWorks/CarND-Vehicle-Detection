@@ -33,8 +33,10 @@ The extraction of features appears under the heading of "Part 1 - Define Feature
 
 Initially I list the available images for the training set. 3 types of images are avaiable - car images from the Udacity dataset, non-car images from the Udacity dataset, and non-car images taken from the video as a method to reduce false positives (hard negative mining). 
 
-The code for loading the images is found in the class TrainingImageLoader. After loading the images I convert them to 1 byte per channel format (instead of float). The loading is performed in a process pool to speed things up. 
-I load the images into a TrainingAndTestSet, which in turn uses a FeatureExtractor to convert the images into feature vectors, and add label vectors to match. I then feed this object into ClassifierTrainer to train the classifier (explained later below).
+Note: due to Udacity's file count limit, I had to delete the datasets from submission. They are present in a previous commit in the repository.
+
+The code for loading the images is found in the class `TrainingImageLoader`. After loading the images I convert them to 1 byte per channel format (instead of float). The loading is performed in a process pool to speed things up. 
+I load the images into a `TrainingAndTestSet`, which in turn uses a `FeatureExtractor` to convert the images into feature vectors, and add label vectors to match. I then feed this object into `ClassifierTrainer` to train the classifier (explained later below).
 
 ![Vehicle example](dataset/vehicle_example.png)
 ![Non-Vehicle example](dataset/non_vehicle_example.png)
@@ -54,7 +56,7 @@ I tried various combinations of parameters, initially paying attention only to t
 
 At first I tried different SVMs, not only linear ones. However they performed worse than linear and trained for longer. I used a grid search (code of which is now commented out) to test the various combinations of kernel, C, gamma. Overall, a linear classifier with C=0.0001 was selected. 
 
-The code for classifier training can be found in the ClassifierTrainer class. The batch size which proved to give the best accuracy was maximum batch size, and memory constraints weren't an issue.
+The code for classifier training can be found in the `ClassifierTrainer` class. The batch size which proved to give the best accuracy was maximum batch size, and memory constraints weren't an issue.
 
 Overall for a feature vector of length 15312 bytes, trained on 14141 samples, it took 7.28 seconds to train and produced a 0.994 precision for predicting the test set. 
 
@@ -74,7 +76,7 @@ After generating the windows I partition them to verticals. This allows faster l
 
 ![Partitioning Example](output_images/partitioning_example.png)
 
-Actual search is performed by ImageWindowSearch. This contains code to parallelize the testing of windows across several processes. 
+Actual search is performed by `ImageWindowSearch`. This contains code to parallelize the testing of windows across several processes. 
 
 The overall search area is visualized by `visualize_search_area`. (image is in the HTML version of IPython notebook).
 Partitioning and how it handles edges of frame is visualized in `visualize_partitioned_search_area`. (image is in the HTML version of the IPython notebook).
